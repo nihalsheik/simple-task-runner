@@ -1,10 +1,11 @@
 /**
- * @author Sheik/Metron
+ * @author Sheik/Metron <s.nihalsheik@gmail.com>
+ *
  * @param arr
  * @param type
  * @constructor
  */
-function TaskManager(arr, type) {
+function TaskRunner(arr, type) {
 
   arr = Array.isArray(arr) ? arr : [];
   var ctx = null, ln = arr.length, args, index = 0;
@@ -75,13 +76,13 @@ function TaskManager(arr, type) {
 }
 
 exports.series = function(arr) {
-  return new TaskManager(arr, 1);
+  return new TaskRunner(arr, 1);
 };
 
 exports.parallel = function(arr) {
-  return new TaskManager(arr, 2);
+  return new TaskRunner(arr, 2);
 };
 
 exports.each = function(arr) {
-  return new TaskManager(arr, 3);
+  return new TaskRunner(arr, 3);
 };
